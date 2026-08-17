@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,7 +51,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 18px;
+            margin: 0 15px;
             font-weight: 500;
             font-size: 1rem;
         }
@@ -82,6 +82,12 @@
             border-bottom: 3px solid #38bdf8;
             padding-bottom: 8px;
             display: inline-block;
+        }
+
+        h3 {
+            color: #0f172a;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
         }
 
         p {
@@ -126,7 +132,7 @@
             background: #15803d;
         }
 
-        /* Contact Form */
+        /* Forms */
         .form-group {
             margin-bottom: 18px;
         }
@@ -154,7 +160,7 @@
         }
 
         textarea {
-            min-height: 140px;
+            min-height: 120px;
             resize: vertical;
         }
 
@@ -177,8 +183,8 @@
                 font-size: 2rem;
             }
             nav a {
-                margin: 0 10px;
-                font-size: 0.95rem;
+                margin: 0 8px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -191,10 +197,11 @@
         <p>Building Better Communities Through Quality Developments</p>
     </header>
 
-    <!-- Simple Navigation -->
+    <!-- Navigation -->
     <nav>
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#careers">Careers</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -218,13 +225,53 @@
             </ul>
         </section>
 
+        <!-- Careers / Job Application Section -->
+        <section class="section" id="careers">
+            <h2>Careers & Job Applications</h2>
+            <p>Want to work with us? Fill out the job application form below to submit your details, or send your application materials directly to our hiring email.</p>
+
+            <p style="margin: 20px 0;">
+                <a href="mailto:smdevlopment@gmail.com?subject=Job%20Application" class="btn btn-email">
+                    Email Resume Directly
+                </a>
+            </p>
+
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #e2e8f0;">
+
+            <h3>Submit Job Application Online</h3>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="_subject" value="New Job Application from Website">
+                
+                <div class="form-group">
+                    <label for="job-name">Full Name</label>
+                    <input type="text" id="job-name" name="name" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="job-email">Your Email</label>
+                    <input type="email" id="job-email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Position Applying For</label>
+                    <input type="text" id="position" name="position" required placeholder="e.g. Sales Agent, Project Manager, Support">
+                </div>
+
+                <div class="form-group">
+                    <label for="cover-letter">Cover Letter / Experience Summary</label>
+                    <textarea id="cover-letter" name="cover_letter" required placeholder="Tell us about your background, experience, and why you want to join SM Development..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </section>
+
         <!-- Contact Section -->
         <section class="section" id="contact">
             <h2>Contact Us</h2>
-            <p>Have a question about our projects or want to get in touch? Send us a message below or email us directly.</p>
+            <p>Have a general question about our projects or client support? Get in touch below.</p>
 
-            <!-- Direct Email Button -->
-            <p style="margin: 25px 0;">
+            <p style="margin: 20px 0;">
                 <a href="mailto:smdevlopment@gmail.com" class="btn btn-email">
                     Email Us Directly
                 </a>
@@ -232,9 +279,7 @@
 
             <hr style="margin: 30px 0; border: none; border-top: 1px solid #e2e8f0;">
 
-            <h3 style="margin-bottom: 20px; color: #0f172a;">Send a Message</h3>
-
-            <!-- Contact Form using Formspree -->
+            <h3>Send a General Message</h3>
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name</label>
@@ -253,10 +298,6 @@
 
                 <button type="submit" class="btn">Send Message</button>
             </form>
-
-            <p style="margin-top: 20px; font-size: 0.95rem; color: #64748b;">
-                Messages will be sent to: <strong>smdevlopment@gmail.com</strong>
-            </p>
         </section>
 
     </div>
@@ -270,5 +311,5 @@
     </footer>
 
 </body>
-                                                                                                                                                      </html>
-                                                                                                                                                      
+        </html>
+            
