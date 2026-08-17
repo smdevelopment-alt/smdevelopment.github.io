@@ -3,370 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMDC - Home of The Good Guys</title>
+    <title>SM Development | Official Website</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
             color: #333;
+            background: #f4f6f9;
         }
 
-        /* Top Navigation */
+        /* Header */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 25px;
-            background: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: #0f172a;
+            padding: 15px 0;
+            text-align: center;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
-        .logo {
-            color: #0056b3;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #444;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            color: #0056b3;
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 75vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        nav a {
             color: white;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 15px;
-            max-width: 500px;
-            line-height: 1.4;
-        }
-
-        .hero h2 {
-            font-size: 34px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-        }
-
-        .hero h2 span {
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        .cta-button {
-            background: #0056b3;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 4px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin: 0 18px;
+            font-weight: 500;
+            font-size: 1rem;
         }
 
-        .cta-button:hover {
-            background: #004085;
+        nav a:hover {
+            color: #38bdf8;
         }
 
-        /* Container Layout */
+        /* Main content */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        .section-title {
-            color: #002D62;
-            font-size: 26px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
+        .section {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
             margin-bottom: 30px;
-            font-size: 15px;
         }
 
-        /* Properties Grid */
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-bottom: 50px;
+        h2 {
+            color: #0f172a;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #38bdf8;
+            padding-bottom: 8px;
+            display: inline-block;
         }
 
-        .property-card {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
         }
 
-        .property-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .property-info {
-            padding: 15px;
-        }
-
-        .property-info h3 {
-            font-size: 18px;
-            color: #002D62;
-            margin-bottom: 8px;
-        }
-
-        .property-info p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        /* Forms Section (Inquiry & Hiring) */
-        .form-container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-        }
-
-        .form-group {
+        ul {
+            margin-left: 20px;
             margin-bottom: 15px;
         }
 
-        .form-group label {
+        li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #0ea5e9;
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+        }
+
+        .btn-email {
+            background: #16a34a;
+        }
+
+        .btn-email:hover {
+            background: #15803d;
+        }
+
+        /* Contact Form */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
             display: block;
             margin-bottom: 6px;
-            color: #333;
-            font-weight: bold;
-            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
         }
 
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
+        input, textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
         }
 
-        .form-group textarea {
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+        }
+
+        textarea {
+            min-height: 140px;
             resize: vertical;
-            height: 100px;
-        }
-
-        .submit-btn {
-            background: #0056b3;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-        }
-
-        .submit-btn:hover {
-            background: #004085;
         }
 
         /* Footer */
         footer {
-            background: #001f3f;
-            color: white;
+            background: #0f172a;
+            color: #94a3b8;
             text-align: center;
-            padding: 20px;
-            font-size: 13px;
-            margin-top: 40px;
+            padding: 30px 20px;
+            font-size: 0.95rem;
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
+        footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
             }
-            .menu-icon {
-                display: block;
+            nav a {
+                margin: 0 10px;
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Header -->
     <header>
-        <div class="logo">SMDC</div>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#properties">Properties</a></li>
-                <li><a href="#inquiry">Inquire</a></li>
-                <li><a href="#hiring">Hiring</a></li>
-            </ul>
-        </nav>
-        <div class="menu-icon">&#9776;</div>
+        <h1>SM Development</h1>
+        <p>Building Better Communities Through Quality Developments</p>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <h1>The Leading Real Estate Developer in the Philippines.</h1>
-        <h2>HOME of <span>The good guys!</span></h2>
-        <a href="#inquiry" class="cta-button">Make an Inquiry</a>
-    </section>
+    <!-- Simple Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
     <div class="container">
 
-        <!-- Properties Section -->
-        <section id="properties">
-            <h2 class="section-title">Featured Developments</h2>
-            <p class="section-subtitle">Discover master-planned communities built for 5-star urban living.</p>
-            
-            <div class="property-grid">
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80" alt="Residences">
-                    <div class="property-info">
-                        <h3>Pre-Selling Condominiums</h3>
-                        <p>Enjoy flexible payment terms and modern resort-styled amenities in prime city locations.</p>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Townhomes">
-                    <div class="property-info">
-                        <h3>Ready-For-Occupancy (RFO)</h3>
-                        <p>Move into your dream suburban home or urban sanctuary right away.</p>
-                    </div>
-                </div>
-            </div>
+        <!-- About Section -->
+        <section class="section" id="about">
+            <h2>About Us</h2>
+            <p>SM Development is a dedicated real estate and property development company focused on creating quality residential and commercial projects.</p>
+            <p>We are committed to solid construction, modern design, and delivering long-term value for our clients and the communities we serve.</p>
         </section>
 
-        <!-- Property Inquiry Form -->
-        <section id="inquiry">
-            <h2 class="section-title">Property Inquiries</h2>
-            <p class="section-subtitle">Fill out the details below to receive project quotations and schedule site presentations.</p>
-            
-            <div class="form-container">
-                <!-- Replace action with your Formspree link to route submissions to your Gmail -->
-                <form action="https://formspree.io/f/your-form-id" method="POST">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required placeholder="name@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+63 9XX XXX XXXX">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="property">Preferred Property / Location</label>
-                        <select id="property" name="property">
-                            <option value="Metro Manila Condo">Metro Manila Residences</option>
-                            <option value="House and Lot">House and Lot Community</option>
-                            <option value="Commercial Office Space">Commercial / Residential Office</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inquiry-message">Your Inquiry Details</label>
-                        <textarea id="inquiry-message" name="message" required placeholder="Let us know what you are looking for..."></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Submit Inquiry</button>
-                </form>
-            </div>
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Residential Property Development</li>
+                <li>Commercial Projects</li>
+                <li>Property Sales & Client Inquiries</li>
+                <li>Customer Support & Digital Services</li>
+            </ul>
         </section>
 
-        <!-- Hiring Opportunities Section -->
-        <section id="hiring">
-            <h2 class="section-title">Hiring Opportunities</h2>
-            <p class="section-subtitle">Build your career with a leading corporate developer. Send your application to our team.</p>
-            
-            <div class="form-container">
-                <form action="https://formspree.io/f/your-form-id" method="POST">
-                    <div class="form-group">
-                        <label for="applicant-name">Full Name</label>
-                        <input type="text" id="applicant-name" name="applicant_name" required placeholder="Enter your full name">
-                    </div>
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <h2>Contact Us</h2>
+            <p>Have a question about our projects or want to get in touch? Send us a message below or email us directly.</p>
 
-                    <div class="form-group">
-                        <label for="applicant-email">Email Address</label>
-                        <input type="email" id="applicant-email" name="applicant_email" required placeholder="name@example.com">
-                    </div>
+            <!-- Direct Email Button -->
+            <p style="margin: 25px 0;">
+                <a href="mailto:smdevlopment@gmail.com" class="btn btn-email">
+                    Email Us Directly
+                </a>
+            </p>
 
-                    <div class="form-group">
-                        <label for="position">Position Applying For</label>
-                        <input type="text" id="position" name="position" required placeholder="e.g. Property Specialist / Sales Associate">
-                    </div>
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #e2e8f0;">
 
-                    <div class="form-group">
-                        <label for="cover-letter">Cover Letter / Message</label>
-                        <textarea id="cover-letter" name="cover_letter" required placeholder="Tell us about your background and experience..."></textarea>
-                    </div>
+            <h3 style="margin-bottom: 20px; color: #0f172a;">Send a Message</h3>
 
-                    <button type="submit" class="submit-btn">Send Application</button>
-                </form>
-            </div>
+            <!-- Contact Form using Formspree -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <p style="margin-top: 20px; font-size: 0.95rem; color: #64748b;">
+                Messages will be sent to: <strong>smdevlopment@gmail.com</strong>
+            </p>
         </section>
 
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 SMDC Portal. Independent marketing and inquiry page.</p>
+        <p>&copy; 2026 SM Development. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="mailto:smdevlopment@gmail.com">smdevlopment@gmail.com</a>
+        </p>
     </footer>
 
 </body>
-</html>
+                                                                                                                                                      </html>
+                                                                                                                                                      
