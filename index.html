@@ -1,10 +1,22 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SM Development | Official Website</title>
+    <title>SM Development | Luxury Architecture & Property Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --charcoal: #121212;
+            --near-black: #0a0a0a;
+            --warm-white: #f9f8f6;
+            --gold: #c5a059;
+            --gold-hover: #d4b26f;
+            --gray: #888888;
+            --light-gray: #e5e5e5;
+            --card-bg: #1a1a1a;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,338 +24,628 @@
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--near-black);
+            color: var(--warm-white);
             line-height: 1.6;
-            color: #333;
-            background: #f4f6f9;
+            overflow-x: hidden;
         }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        h1, h2, h3, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
         }
 
         /* Navigation */
         nav {
-            background: #0f172a;
-            padding: 15px 0;
-            text-align: center;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        nav a {
-            color: white;
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--warm-white);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        nav a:hover {
-            color: #38bdf8;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
         }
 
-        /* Main content */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .nav-links a {
+            color: var(--warm-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
         }
 
-        .section {
-            background: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            margin-bottom: 30px;
+        .nav-links a:hover {
+            color: var(--gold);
         }
 
-        h2 {
-            color: #0f172a;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #38bdf8;
-            padding-bottom: 8px;
-            display: inline-block;
-        }
-
-        h3 {
-            color: #0f172a;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-        }
-
-        /* Buttons */
         .btn {
             display: inline-block;
-            background: #0ea5e9;
-            color: white;
-            padding: 14px 32px;
+            padding: 0.75rem 1.75rem;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 500;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: 0.3s;
-            border: none;
+            transition: all 0.3s ease;
             cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .btn:hover {
-            background: #0284c7;
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--near-black);
+            border: 1px solid var(--gold);
         }
 
-        .btn-email {
-            background: #16a34a;
+        .btn-primary:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
         }
 
-        .btn-email:hover {
-            background: #15803d;
+        .btn-outline {
+            background-color: transparent;
+            color: var(--warm-white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Forms */
-        .form-group {
-            margin-bottom: 18px;
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
         }
 
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            color: #334155;
+        /* Hero Section */
+        header.hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
         }
 
-        input, textarea {
+        header.hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.5), rgba(10,10,10,0.85));
+            z-index: 1;
         }
 
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #0ea5e9;
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin-top: 4rem;
         }
 
-        textarea {
-            min-height: 120px;
-            resize: vertical;
+        .hero-content h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--light-gray);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Section Layout */
+        section {
+            padding: 7rem 5%;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            max-width: 600px;
+        }
+
+        .section-header span {
+            color: var(--gold);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            line-height: 1.2;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background-color: var(--charcoal);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(197, 160, 89, 0.4);
+        }
+
+        .project-img {
+            height: 300px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(5px);
+            padding: 0.4rem 0.9rem;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .explore-link {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* About Section */
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2.2rem, 3.5vw, 3rem);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .credibility-points {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .point-icon {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .point-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .point-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background-color: var(--charcoal);
+            padding: 3rem 2rem;
+            border-left: 2px solid var(--gold);
+        }
+
+        .stat-box h3 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box p {
+            color: var(--gray);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--charcoal);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* Why SM Development */
+        .why-container {
+            background-color: var(--charcoal);
+            padding: 5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .why-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--gold);
+        }
+
+        .why-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(to bottom, var(--near-black), var(--charcoal));
+            text-align: center;
+            padding: 8rem 5%;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-content p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3rem;
+        }
+
+        .contact-item h5 {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p, .contact-item a {
+            color: var(--warm-white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
         }
 
         /* Footer */
         footer {
-            background: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 0.95rem;
+            padding: 3rem 5%;
+            background-color: var(--near-black);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        footer a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .about-split {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
-            nav a {
-                margin: 0 8px;
-                font-size: 0.9rem;
+            .nav-links {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-</video>
-        
-    <!-- Header -->
-    <header>
-            
-            
-        <h1>SM Development</h1>
-        <p>Building Better Communities Through Quality Developments</p>
-    </header>
 
     <!-- Navigation -->
     <nav>
-        <a href="#about">About</a>
-
-<a href="#projects">Projects</a>
-            
-        <a href="#services">Services</a>
-        <a href="#careers">Careers</a>
-        <a href="#contact">Contact</a>
+        <a href="#" class="logo">SM DEVELOPMENT</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Enquire Now</a>
     </nav>
 
-    <div class="container">
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Building Places. Creating Possibilities.</h1>
+            <p>Redefining modern living and architectural excellence through premium property developments crafted for tomorrow.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">View Our Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </header>
 
-        <!-- About Section -->
-        <section class="section" id="about">
-            <h2>About Us</h2>
-            <p>SM Development is a dedicated real estate and property development company focused on creating quality residential and commercial projects.</p>
-            <p>We are committed to solid construction, modern design, and delivering long-term value for our clients and the communities we serve.</p>
-        </section>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <span>Portfolio</span>
+            <h2>Curated Developments</h2>
+        </div>
+        <div class="projects-grid">
+            <a href="#contact" class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Resort-Style Living">
+                    <span class="project-badge">Completed</span>
+                </div>
+                <div class="project-info">
+                    <div class="project-meta">
+                        <span>Residential</span>
+                        <span>Sta. Rosa</span>
+                    </div>
+                    <h3>Calm Residences</h3>
+                    <p>Resort-style sanctuaries offering calm, spacious environments tailored for modern families.</p>
+                    <span class="explore-link">Explore Project &rarr;</span>
+                </div>
+            </a>
 
-                <!-- Projects Gallery Section -->
-    <section class="section" id="projects">
-        <div class="container">
-            <h2>Our Featured Projects</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
-                
-                <!-- Project 1 -->
-                <div style="border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <div style="padding: 20px; text-align: center;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 5px; color: #003366;">Resort-Style Living</h3>
-                        <p style="font-size: 0.9rem; color: #666;">Experience modern comfort with world-class amenities right at your doorstep.</p>
+            <a href="#contact" class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="Prime Commercial Tower">
+                    <span class="project-badge">Under Construction</span>
+                </div>
+                <div class="project-info">
+                    <div class="project-meta">
+                        <span>Commercial</span>
+                        <span>Prime District</span>
+                    </div>
+                    <h3>Apex Business Hub</h3>
+                    <p>State-of-the-art commercial architecture designed for global enterprises and dynamic workspaces.</p>
+                    <span class="explore-link">Explore Project &rarr;</span>
+                </div>
+            </a>
+
+            <a href="#contact" class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Luxury Living">
+                    <span class="project-badge">Pre-Selling</span>
+                </div>
+                <div class="project-info">
+                    <div class="project-meta">
+                        <span>Residential</span>
+                        <span>Metro Center</span>
+                    </div>
+                    <h3>The Horizon Estates</h3>
+                    <p>High-end sustainable residences combining uncompromising luxury with natural architectural harmony.</p>
+                    <span class="explore-link">Explore Project &rarr;</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-split">
+            <div class="about-text">
+                <span>About Us</span>
+                <h2>We don't just develop properties. We develop better places to live, work and grow.</h2>
+                <p style="color: var(--gray); font-weight: 300; margin-bottom: 1.5rem;">
+                    SM Development stands at the intersection of innovative design and structural integrity. Every blueprint we draft is built around a singular philosophy: enhancing the human experience through thoughtful space planning.
+                </p>
+                <div class="credibility-points">
+                    <div class="point-item">
+                        <div class="point-icon">&#10003;</div>
+                        <div>
+                            <h4>Quality Construction</h4>
+                            <p>Rigorous structural standards utilizing premium architectural materials.</p>
+                        </div>
+                    </div>
+                    <div class="point-item">
+                        <div class="point-icon">&#10003;</div>
+                        <div>
+                            <h4>Strategic Locations</h4>
+                            <p>Hand-picked sites guaranteeing accessibility, community growth, and enduring value.</p>
+                        </div>
+                    </div>
+                    <div class="point-item">
+                        <div class="point-icon">&#10003;</div>
+                        <div>
+                            <h4>Long-Term Value</h4>
+                            <p>Future-proof investments engineered to appreciate across generations.</p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Project 2 -->
-                <div style="border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <div style="padding: 20px; text-align: center;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 5px; color: #003366;">Prime Locations</h3>
-                        <p style="font-size: 0.9rem; color: #666;">Strategically situated near business districts, lifestyle hubs, and major thoroughfares.</p>
-                    </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h3>10+</h3>
+                    <p>Projects Delivered</p>
                 </div>
-
+                <div class="stat-box">
+                    <h3>5+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-box">
+                    <h3>100%</h3>
+                    <p>Commitment to Quality</p>
+                </div>
+                <div class="stat-box">
+                    <h3>3</h3>
+                    <p>Development Areas</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
-            
-        <!-- Services Section -->
-        <section class="section" id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Residential Property Development</li>
-                <li>Commercial Projects</li>
-                <li>Property Sales & Client Inquiries</li>
-                <li>Customer Support & Digital Services</li>
-            </ul>
-        </section>
-
-        <!-- Careers / Job Application Section -->
-        <section class="section" id="careers">
-            <h2>Careers & Job Applications</h2>
-            <p>Want to work with us? Fill out the job application form below to submit your details, or send your application materials directly to our hiring email.</p>
-
-            <p style="margin: 20px 0;">
-                <a href="mailto:smdevlopment@gmail.com?subject=Job%20Application" class="btn btn-email">
-                    Email Resume Directly
-                </a>
-            </p>
-
-            <hr style="margin: 30px 0; border: none; border-top: 1px solid #e2e8f0;">
-
-            <h3>Submit Job Application Online</h3>
-            <form action="https://formspree.io/f/xkjwqroq" method="POST">
-                <input type="hidden" name="_subject" value="New Job Application from Website">
-                
-                <div class="form-group">
-                    <label for="job-name">Full Name</label>
-                    <input type="text" id="job-name" name="name" required placeholder="Your full name">
-                </div>
-
-                <div class="form-group">
-                    <label for="job-email">Your Email</label>
-                    <input type="email" id="job-email" name="email" required placeholder="your@email.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="position">Position Applying For</label>
-                    <input type="text" id="position" name="position" required placeholder="e.g. Sales Agent, Project Manager, Support">
-                </div>
-
-                <div class="form-group">
-                    <label for="cover-letter">Cover Letter / Experience Summary</label>
-                    <textarea id="cover-letter" name="cover_letter" required placeholder="Tell us about your background, experience, and why you want to join SM Development..."></textarea>
-                </div>
-
-                <button type="submit" class="btn">Submit Application</button>
-            </form>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section" id="contact">
-            <h2>Contact Us</h2>
-            <p>Have a general question about our projects or client support? Get in touch below.</p>
-
-            <p style="margin: 20px 0;">
-                <a href="mailto:smdevlopment@gmail.com" class="btn btn-email">
-                    Email Us Directly
-                </a>
-            </p>
-
-            <hr style="margin: 30px 0; border: none; border-top: 1px solid #e2e8f0;">
-
-            <h3>Send a General Message</h3>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Your full name">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required placeholder="your@email.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
-                </div>
-
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </section>
-
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 SM Development. All rights reserved.</p>
-        <p style="margin-top: 8px;">
-            <a href="mailto:smdevlopment@gmail.com">smdevlopment@gmail.com</a>
-        </p>
-    </footer>
-
-</body>
-        </html>
-            
+    <!-- Services Section -->
+    <section id="services" style="background-color: var(--charcoal);">
+        <div class="section-header">
+            <span>Expertise</span>
+            <h2>Our Core Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">&#127968;</div>
+                <h3>Residential Development</h3>
+                <p>Creating master-planned communities and high-end living spaces prioritizing comfort and sustainability.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#127970;</div>
+                <h3>Commercial Development</h3>
+                <p>Designing modern commercial hubs and office complexes optimized for business efficiency and growth.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#129309;</div>
+                <h3>Property Sales</h3>
+                <p>Guiding clients through transparent, secure transactions for prime residential and commercial units.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">&#128188;</div>
+                <h3>Property & Client Ser
