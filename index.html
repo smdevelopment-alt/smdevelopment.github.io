@@ -1,35 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SM Development | Building Better Futures</title>
+    <meta name="description" content="SM Development - Residential and commercial property development, sales and client services.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fa;
+            color: #1f2933;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* NAVIGATION */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e8eaed;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1180px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #003366;
+        }
+
+        .logo span {
+            color: #b18a45;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #344054;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #003366;
+        }
+
+        .nav-button {
+            background: #003366;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 4px;
+        }
+
+        .nav-button:hover {
+            background: #00264d;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(rgba(0, 30, 60, 0.72), rgba(0, 20, 40, 0.76)),
+                url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 1180px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 25px;
+            color: white;
+        }
+
+        .hero-label {
+            color: #d6b46a;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 6vw, 5.2rem);
+            line-height: 1.05;
+            max-width: 800px;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 1.12rem;
+            color: #eef2f6;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            border: none;
+            background: #003366;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #00264d;
+            transform: translateY(-1px);
+        }
+
+        .btn-light {
+            background: white;
+            color: #003366;
+        }
+
+        .btn-light:hover {
+            background: #f1f3f5;
+        }
+
+        .btn-email {
+            background: #003366;
+        }
+
+        /* GENERAL */
+        .section {
+            max-width: 1180px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: #b18a45;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #667085;
+            font-size: 1rem;
+        }
+
+        /* ABOUT */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            max-width: 1180px;
+            margin: auto;
+            padding: 90px 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 480px;
+            background:
+                linear-gradient(rgba(0, 35, 70, 0.12), rgba(0, 35, 70, 0.12)),
+                url("https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85")
+                center/cover no-repeat;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #003366;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #667085;
+            margin-bottom: 18px;
+        }
+
+        /* VALUES */
+        .values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 45px;
+        }
+
+        .value-card {
+            background: white;
+            border: 1px solid #e7e9ec;
+            padding: 30px;
+            transition: 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .value-line {
+            width: 40px;
+            height: 3px;
+            background: #b18a45;
+            margin-bottom: 22px;
+        }
+
+        .value-card h3 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .value-card p {
+            color: #667085;
+            font-size: 0.92rem;
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #f7f8fa;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #e6e8eb;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-image {
+            height: 300px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .project-image.one {
+            background-image: url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85");
+        }
+
+        .project-image.two {
+            background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85");
+        }
+
+        .project-info {
+            padding: 28px;
+        }
+
+        .project-info small {
+            color: #b18a45;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .project-info h3 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin: 8px 0;
+        }
+
+        .project-info p {
+            color: #667085;
+            font-size: 0.92rem;
+        }
+
+        /* SERVICES */
+        .services {
+            background: white;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            list-style: none;
+        }
+
+        .service-list li {
+            border: 1px solid #e4e7ec;
+            padding: 22px 25px;
+            background: #fff;
+            color: #344054;
+            font-weight: 600;
+            position: relative;
+            padding-left: 45px;
+        }
+
+        .service-list li::before {
+            content: "";
+            position: absolute;
+            left: 22px;
+            top: 32px;
+            width: 7px;
+            height: 7px;
+            background: #b18a45;
+            border-radius: 50%;
+        }
+
+        /* CAREERS & CONTACT */
+        .careers-contact {
+            background: #f7f8fa;
+        }
+
+        .form-section {
+            background: white;
+            border: 1px solid #e5e7eb;
+            padding: 40px;
+            margin-top: 30px;
+        }
+
+        .form-section h3 {
+            color: #003366;
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+        }
+
+        .form-section p {
+            color: #667085;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            color: #344054;
+            margin-bottom: 7px;
+            font-size: 0.9rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: 1px solid #d0d5dd;
+            border-radius: 3px;
+            padding: 13px 14px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: #1d2939;
+            background: white;
+            outline: none;
+            transition: 0.2s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #003366;
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.08);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #e4e7ec;
+            margin: 35px 0;
+        }
+
+        /* CTA */
+        .cta {
+            background: #003366;
+            color: white;
+            text-align: center;
+            padding: 80px 25px;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 28px;
+            color: #d9e2ec;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #071a2d;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #d6b46a;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 580px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-image {
+                min-height: 350px;
+            }
+
+            .values {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nav-container {
+                padding: 15px 18px;
+            }
+
+            .hero-content {
+                padding: 65px 20px;
+            }
+
+            .section {
+                padding: 65px 20px;
+            }
+
+            .about-grid {
+                padding: 65px 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="nav-container">
+        <a href="#home" class="logo">SM <span>DEVELOPMENT</span></a>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#careers">Careers</a>
+            <a href="mailto:smdevlopment@gmail.com" class="nav-button">Contact Us</a>
+        </nav>
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-label">Property Development</div>
+
+        <h1>Building Places.<br>Creating Possibilities.</h1>
+
+        <p>
+            SM Development delivers thoughtfully planned residential and
+            commercial properties designed around quality, location and
+            long-term value.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn">Explore Our Projects</a>
+            <a href="mailto:smdevlopment@gmail.com" class="btn btn-light">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
 <section class="about" id="about">
 
-    <div class="container">
+    <div class="about-grid">
 
-        <div class="about-grid">
+        <div class="about-image"></div>
 
-            <div class="about-content">
+        <div class="about-text">
+            <div class="section-label">About SM Development</div>
 
-                <div class="section-label">
-                    Who We Are
-                </div>
+            <h2>Developing spaces designed for better living.</h2>
 
-                <h2 class="section-title">
-                    Committed to structural excellence and enduring quality.
-                </h2>
+            <p>
+                SM Development is committed to creating quality residential
+                and commercial properties in locations that offer convenience,
+                accessibility and long-term value.
+            </p>
 
-                <p>
-                    At SM Development, we approach every project with a clear vision: to create spaces that enhance how people live, work, and interact within their communities.
-                </p>
+            <p>
+                From development and property sales to client support, our
+                approach is centred around quality, professionalism and
+                dependable service.
+            </p>
 
-                <p>
-                    From initial site selection to final construction and client turnover, our team maintains rigorous standards of engineering, design, and transparency.
-                </p>
-
-                <a href="#contact" class="btn">
-                    Get in Touch
-                </a>
-
-            </div>
-
-            <div class="about-image"></div>
-
+            <a href="mailto:smdevlopment@gmail.com" class="btn">Speak With Us</a>
         </div>
 
     </div>
@@ -37,67 +605,54 @@
 </section>
 
 
-<section class="highlights">
+<!-- WHY SM DEVELOPMENT -->
+<section class="section">
 
-    <div class="container highlight-grid">
+    <div class="section-header">
+        <div class="section-label">Why Choose Us</div>
 
-        <div class="highlight">
-            <span class="highlight-title">Prime</span>
-            <span class="highlight-text">Strategic Locations</span>
-        </div>
+        <h2>Built around quality and value.</h2>
 
-        <div class="highlight">
-            <span class="highlight-title">Quality</span>
-            <span class="highlight-text">Standard Construction</span>
-        </div>
-
-        <div class="highlight">
-            <span class="highlight-title">Value</span>
-            <span class="highlight-text">Long-Term Growth</span>
-        </div>
-
-        <div class="highlight">
-            <span class="highlight-title">Support</span>
-            <span class="highlight-text">Dedicated Client Care</span>
-        </div>
-
+        <p>
+            Every development is approached with careful attention to
+            location, functionality and the needs of the people who will
+            use the space.
+        </p>
     </div>
 
-</section>
+    <div class="values">
 
+        <div class="value-card">
+            <div class="value-line"></div>
 
-<section class="why-us section" id="why">
+            <h3>Quality Development</h3>
 
-    <div class="container">
-
-        <div class="section-heading">
-            <div class="section-label">Why Choose Us</div>
-            <h2 class="section-title">Built on trust and execution</h2>
-            <p class="section-description">
-                We combine industry experience with a client-first approach to ensure every development meets expectations.
+            <p>
+                We focus on creating properties that combine practical
+                design, quality and lasting value.
             </p>
         </div>
 
-        <div class="cards-three">
+        <div class="value-card">
+            <div class="value-line"></div>
 
-            <div class="info-card">
-                <div class="gold-line"></div>
-                <h3>Strategic Positioning</h3>
-                <p>Locations chosen for accessibility, community growth, and enduring market value.</p>
-            </div>
+            <h3>Prime Locations</h3>
 
-            <div class="info-card">
-                <div class="gold-line"></div>
-                <h3>Transparent Process</h3>
-                <p>Clear communication and structured guidance from your first inquiry to property handover.</p>
-            </div>
+            <p>
+                Strategically situated near business districts, lifestyle
+                hubs, and major thoroughfares.
+            </p>
+        </div>
 
-            <div class="info-card">
-                <div class="gold-line"></div>
-                <h3>Reliable Support</h3>
-                <p>Continuous client assistance for inquiries, documentation, and property management.</p>
-            </div>
+        <div class="value-card">
+            <div class="value-line"></div>
 
+            <h3>Client Focused</h3>
+
+            <p>
+                We aim to provide a straightforward and professional
+                experience from enquiry through to completion.
+            </p>
         </div>
 
     </div>
@@ -105,35 +660,52 @@
 </section>
 
 
-<section class="projects section" id="projects">
+<!-- PROJECTS -->
+<section class="projects" id="projects">
 
-    <div class="container">
+    <div class="section">
 
-        <div class="section-heading">
+        <div class="section-header">
             <div class="section-label">Our Portfolio</div>
-            <h2 class="section-title">Featured Developments</h2>
-            <p class="section-description">
-                Explore our current residential and commercial projects designed for modern lifestyles.
+
+            <h2>Our Projects</h2>
+
+            <p>
+                Explore our approach to residential and commercial property
+                development.
             </p>
         </div>
 
         <div class="project-grid">
 
             <div class="project-card">
-                <div class="project-image project-image-one"></div>
-                <div class="project-content">
-                    <span class="project-type">Residential</span>
-                    <h3>Modern Living Spaces</h3>
-                    <p>Designed for comfort, security, and community living with accessible amenities.</p>
+                <div class="project-image one"></div>
+
+                <div class="project-info">
+                    <small>Residential Development</small>
+
+                    <h3>Modern Living</h3>
+
+                    <p>
+                        Thoughtfully designed residential spaces created
+                        for comfort, convenience and contemporary living.
+                    </p>
                 </div>
             </div>
+
 
             <div class="project-card">
-                <div class="project-image project-image-two"></div>
-                <div class="project-content">
-                    <span class="project-type">Commercial</span>
-                    <h3>Business & Retail Hubs</h3>
-                    <p>Strategic commercial environments optimized for business growth and foot traffic.</p>
+                <div class="project-image two"></div>
+
+                <div class="project-info">
+                    <small>Property Development</small>
+
+                    <h3>Prime Locations</h3>
+
+                    <p>
+                        Developments positioned to provide accessibility,
+                        convenience and long-term property value.
+                    </p>
                 </div>
             </div>
 
@@ -144,124 +716,90 @@
 </section>
 
 
-<section class="process section">
+<!-- SERVICES -->
+<section class="services" id="services">
 
-    <div class="container">
+    <div class="section">
 
-        <div class="section-heading">
-            <div class="section-label">How We Work</div>
-            <h2 class="section-title">Our Development Process</h2>
-            <p class="section-description">
-                A streamlined framework designed to deliver properties safely, legally, and on schedule.
+        <div class="section-header">
+            <div class="section-label">What We Do</div>
+
+            <h2>Our Services</h2>
+
+            <p>
+                Professional property development and client services
+                tailored to meet different property needs.
             </p>
         </div>
 
-        <div class="process-grid">
-
-            <div class="process-card">
-                <div class="process-number">01</div>
-                <h3>Planning & Design</h3>
-                <p>Detailed architectural layouts and structural planning tailored to site potential.</p>
-            </div>
-
-            <div class="process-card">
-                <div class="process-number">02</div>
-                <h3>Acquisition & Setup</h3>
-                <p>Securing prime locations and preparing necessary regulatory frameworks.</p>
-            </div>
-
-            <div class="process-card">
-                <div class="process-number">03</div>
-                <h3>Construction</h3>
-                <p>Executing builds with quality materials and strict safety and quality controls.</p>
-            </div>
-
-            <div class="process-card">
-                <div class="process-number">04</div>
-                <h3>Turnover & Support</h3>
-                <p>Seamless client onboarding, key handover, and ongoing customer service.</p>
-            </div>
-
-        </div>
+        <ul class="service-list">
+            <li>Residential Property Development</li>
+            <li>Commercial Projects</li>
+            <li>Property Sales & Client Inquiries</li>
+            <li>Customer Support & Digital Services</li>
+        </ul>
 
     </div>
 
 </section>
 
 
-<section class="services section" id="services">
+<!-- CAREERS -->
+<section class="careers-contact" id="careers">
 
-    <div class="container">
+    <div class="section">
 
-        <div class="section-heading">
-            <div class="section-label">Our Offerings</div>
-            <h2 class="section-title">Core Services</h2>
-            <p class="section-description">
-                Comprehensive real estate solutions backed by professional expertise.
-            </p>
-        </div>
-
-        <div class="service-grid">
-            <div class="service-item">Residential Property Development</div>
-            <div class="service-item">Commercial Projects & Spaces</div>
-            <div class="service-item">Property Sales & Client Inquiries</div>
-            <div class="service-item">Customer Support & Digital Services</div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="careers section" id="careers">
-
-    <div class="container">
-
-        <div class="section-heading">
+        <div class="section-header">
             <div class="section-label">Join Our Team</div>
-            <h2 class="section-title">Careers & Job Applications</h2>
-            <p class="section-description">
-                Want to work with us? Fill out the job application form below or send your application materials directly to our hiring email.
+
+            <h2>Careers & Job Applications</h2>
+
+            <p>
+                Want to work with us? Fill out the job application form below
+                to submit your details, or send your application materials
+                directly to our hiring email.
             </p>
         </div>
 
-        <div class="form-box" style="margin-bottom: 30px;">
-            <h3>Direct Application Email</h3>
-            <p class="form-intro">Prefer to email your resume and cover letter directly? Click below to open your mail app.</p>
-            <a href="mailto:smdevlopment@gmail.com?subject=Job%20Application" class="btn">
+        <div class="form-section">
+
+            <a href="mailto:smdevlopment@gmail.com?subject=Job%20Application"
+               class="btn btn-email">
                 Email Resume Directly
             </a>
-        </div>
 
-        <div class="form-box">
+            <hr>
+
             <h3>Submit Job Application Online</h3>
-            <p class="form-intro">Fill out the form below to submit your details directly to our hiring team.</p>
+
+            <p style="margin-bottom: 25px;">
+                Complete the form below and submit your application.
+            </p>
 
             <form action="https://formspree.io/f/xkjwqroq" method="POST">
-                <input type="hidden" name="_subject" value="New Job Application from Website">
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="job-name">Full Name</label>
-                        <input type="text" id="job-name" name="name" required placeholder="Your full name">
-                    </div>
+                <input type="hidden"
+                       name="_subject"
+                       value="New Job Application from Website">
 
-                    <div class="form-group">
-                        <label for="job-email">Your Email</label>
-                        <input type="email" id="job-email" name="email" required placeholder="your@email.com">
-                    </div>
+                <div class="form-group">
+                    <label for="job-name">Full Name</label>
+                    <input type="text" id="job-name" name="name" required placeholder="Your full name">
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="position">Position Applying For</label>
-                        <input type="text" id="position" name="position" required placeholder="e.g. Sales Agent, Project Manager">
-                    </div>
+                <div class="form-group">
+                    <label for="job-email">Your Email</label>
+                    <input type="email" id="job-email" name="email" required placeholder="your@email.com">
+                </div>
 
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Your phone number">
-                    </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Position Applying For</label>
+                    <input type="text" id="position" name="position" required placeholder="e.g. Sales Agent, Project Manager, Support">
                 </div>
 
                 <div class="form-group">
@@ -269,166 +807,4 @@
                     <textarea id="cover-letter" name="cover_letter" required placeholder="Tell us about your background, experience, and why you want to join SM Development..."></textarea>
                 </div>
 
-                <div class="checkbox-row">
-                    <input type="checkbox" id="terms" required>
-                    <label for="terms">I confirm that the information provided in this application is accurate and true.</label>
-                </div>
-
-                <button type="submit" class="btn">Submit Application</button>
-            </form>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="faq section">
-
-    <div class="container faq-container">
-
-        <div class="section-heading">
-            <div class="section-label">Helpful Info</div>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-        </div>
-
-        <details class="faq-item">
-            <summary>How can I inquire about available properties?</summary>
-            <div class="faq-answer">
-                You can reach out to us directly by filling out the contact form below or sending an email to smdevlopment@gmail.com. Our team will get back to you promptly.
-            </div>
-        </details>
-
-        <details class="faq-item">
-            <summary>Are your developments open for commercial investments?</summary>
-            <div class="faq-answer">
-                Yes, we offer both residential and commercial development solutions. You can check our portfolio section or contact our office for specific investment opportunities.
-            </div>
-        </details>
-
-        <details class="faq-item">
-            <summary>How do I submit an application for open job roles?</summary>
-            <div class="faq-answer">
-                You can either submit your details directly using our online Careers form or email your resume to smdevlopment@gmail.com with the position title in the subject line.
-            </div>
-        </details>
-
-    </div>
-
-</section>
-
-
-<section class="cta">
-
-    <div class="container">
-        <h2>Ready to work with SM Development?</h2>
-        <p>Get in touch with our team today for property inquiries, partnerships, or career opportunities.</p>
-        <a href="#contact" class="btn btn-light">Contact Us Now</a>
-    </div>
-
-</section>
-
-
-<section class="contact section" id="contact">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <div class="section-label">Reach Out</div>
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-description">
-                Have a general question about our projects or client support? Get in touch below.
-            </p>
-        </div>
-
-        <div class="contact-details">
-
-            <div class="contact-intro">
-                <p>
-                    We are always available to answer your questions regarding our developments, sales processes, or corporate partnerships.
-                </p>
-                <p>
-                    Direct Email:<br>
-                    <a href="mailto:smdevlopment@gmail.com" class="contact-email">smdevlopment@gmail.com</a>
-                </p>
-            </div>
-
-            <div class="contact-form">
-                <form action="https://formspree.io/f/xkjwqroq" method="POST">
-                    
-                    <input type="hidden" name="_subject" value="New General Message from Website">
-
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your full name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<footer>
-
-    <div class="footer-grid">
-
-        <div class="footer-brand">
-            <h3>SM Development</h3>
-            <p>Delivering quality residential and commercial property solutions built for long-term value.</p>
-        </div>
-
-        <div class="footer-column">
-            <h4>Quick Links</h4>
-            <a href="#about">About Us</a>
-            <a href="#projects">Projects</a>
-            <a href="#services">Services</a>
-            <a href="#careers">Careers</a>
-            <a href="#contact">Contact Us</a>
-        </div>
-
-        <div class="footer-column">
-            <h4>Get in Touch</h4>
-            <p>Email: smdevlopment@gmail.com</p>
-            <p style="margin-top: 10px;">Location: Strategic Business Districts</p>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2026 SM Development. All rights reserved.</p>
-    </div>
-
-</footer>
-
-
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById('mobileMenu');
-        menu.classList.toggle('active');
-    }
-
-    function closeMenu() {
-        const menu = document.getElementById('mobileMenu');
-        menu.classList.remove('active');
-    }
-</script>
-
-</body>
-    </html>
-    
+                <div style="display: flex; align-items: flex-
