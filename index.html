@@ -3,649 +3,824 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SM Development | Luxury Architecture & Property Development</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --charcoal: #121212;
-            --near-black: #0a0a0a;
-            --warm-white: #f9f8f6;
-            --gold: #c5a059;
-            --gold-hover: #d4b26f;
-            --gray: #888888;
-            --light-gray: #e5e5e5;
-            --card-bg: #1a1a1a;
-        }
 
+    <title>SM Development | Building Better Futures</title>
+    <meta name="description" content="SM Development - Residential and commercial property development, sales and client services.">
+
+    <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--near-black);
-            color: var(--warm-white);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fa;
+            color: #1f2933;
+            line-height: 1.7;
         }
 
-        h1, h2, h3, .serif {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* NAVIGATION */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e8eaed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1180px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
         }
 
         .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: var(--warm-white);
-            text-decoration: none;
-            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #003366;
         }
 
-        .nav-links {
+        .logo span {
+            color: #b18a45;
+        }
+
+        nav {
             display: flex;
-            gap: 2rem;
-            list-style: none;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #344054;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #003366;
+        }
+
+        .nav-button {
+            background: #003366;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 4px;
+        }
+
+        .nav-button:hover {
+            background: #00264d;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(rgba(0, 30, 60, 0.72), rgba(0, 20, 40, 0.76)),
+                url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+
+            display: flex;
             align-items: center;
         }
 
-        .nav-links a {
-            color: var(--warm-white);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
+        .hero-content {
+            max-width: 1180px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 25px;
+            color: white;
         }
 
-        .nav-links a:hover {
-            color: var(--gold);
+        .hero-label {
+            color: #d6b46a;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 6vw, 5.2rem);
+            line-height: 1.05;
+            max-width: 800px;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 1.12rem;
+            color: #eef2f6;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.75rem 1.75rem;
-            border-radius: 2px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            border: none;
+            background: #003366;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 700;
             cursor: pointer;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            transition: 0.3s ease;
         }
 
-        .btn-primary {
-            background-color: var(--gold);
-            color: var(--near-black);
-            border: 1px solid var(--gold);
+        .btn:hover {
+            background: #00264d;
+            transform: translateY(-1px);
         }
 
-        .btn-primary:hover {
-            background-color: var(--gold-hover);
-            border-color: var(--gold-hover);
+        .btn-light {
+            background: white;
+            color: #003366;
         }
 
-        .btn-outline {
-            background-color: transparent;
-            color: var(--warm-white);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .btn-light:hover {
+            background: #f1f3f5;
         }
 
-        .btn-outline:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+        .btn-email {
+            background: #003366;
         }
 
-        /* Hero Section */
-        header.hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
-        }
-
-        header.hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.5), rgba(10,10,10,0.85));
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin-top: 4rem;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .hero-content p {
-            font-size: 1.15rem;
-            color: var(--light-gray);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            font-weight: 300;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* Section Layout */
-        section {
-            padding: 7rem 5%;
+        /* GENERAL */
+        .section {
+            max-width: 1180px;
+            margin: auto;
+            padding: 90px 25px;
         }
 
         .section-header {
-            margin-bottom: 4rem;
-            max-width: 600px;
+            max-width: 700px;
+            margin-bottom: 45px;
         }
 
-        .section-header span {
-            color: var(--gold);
+        .section-label {
+            color: #b18a45;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            display: block;
-            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            margin-bottom: 10px;
         }
 
-        .section-header h2 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
+        .section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.2;
+            color: #003366;
+            margin-bottom: 15px;
         }
 
-        /* Projects Section */
-        .projects-grid {
+        .section-header p {
+            color: #667085;
+            font-size: 1rem;
+        }
+
+        /* ABOUT */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            max-width: 1180px;
+            margin: auto;
+            padding: 90px 25px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 480px;
+            background:
+                linear-gradient(rgba(0, 35, 70, 0.12), rgba(0, 35, 70, 0.12)),
+                url("https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85")
+                center/cover no-repeat;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #003366;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #667085;
+            margin-bottom: 18px;
+        }
+
+        /* VALUES */
+        .values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 45px;
+        }
+
+        .value-card {
+            background: white;
+            border: 1px solid #e7e9ec;
+            padding: 30px;
+            transition: 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .value-line {
+            width: 40px;
+            height: 3px;
+            background: #b18a45;
+            margin-bottom: 22px;
+        }
+
+        .value-card h3 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .value-card p {
+            color: #667085;
+            font-size: 0.92rem;
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #f7f8fa;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
         }
 
         .project-card {
-            background-color: var(--charcoal);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.4s ease, border-color 0.4s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            background: white;
+            border: 1px solid #e6e8eb;
             overflow: hidden;
+            transition: 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(197, 160, 89, 0.4);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .project-img {
+        .project-image {
             height: 300px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
+            background-position: center;
+            background-size: cover;
         }
 
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
+        .project-image.one {
+            background-image: url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85");
         }
 
-        .project-card:hover .project-img img {
-            transform: scale(1.05);
-        }
-
-        .project-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(10, 10, 10, 0.75);
-            backdrop-filter: blur(5px);
-            padding: 0.4rem 0.9rem;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--gold);
+        .project-image.two {
+            background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85");
         }
 
         .project-info {
-            padding: 2rem;
+            padding: 28px;
         }
 
-        .project-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--gray);
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+        .project-info small {
+            color: #b18a45;
             text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 1px;
         }
 
         .project-info h3 {
-            font-size: 1.75rem;
-            margin-bottom: 0.75rem;
+            color: #003366;
+            font-size: 1.4rem;
+            margin: 8px 0;
         }
 
         .project-info p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
+            color: #667085;
+            font-size: 0.92rem;
         }
 
-        .explore-link {
-            color: var(--gold);
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+        /* SERVICES */
+        .services {
+            background: white;
         }
 
-        /* About Section */
-        .about-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: clamp(2.2rem, 3.5vw, 3rem);
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-
-        .credibility-points {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
-
-        .point-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .point-icon {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
-        }
-
-        .point-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-        }
-
-        .point-item p {
-            color: var(--gray);
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-
-        .stats-grid {
+        .service-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 18px;
+            list-style: none;
         }
 
-        .stat-box {
-            background-color: var(--charcoal);
-            padding: 3rem 2rem;
-            border-left: 2px solid var(--gold);
+        .service-list li {
+            border: 1px solid #e4e7ec;
+            padding: 22px 25px;
+            background: #fff;
+            color: #344054;
+            font-weight: 600;
+            position: relative;
+            padding-left: 45px;
         }
 
-        .stat-box h3 {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
+        .service-list li::before {
+            content: "";
+            position: absolute;
+            left: 22px;
+            top: 32px;
+            width: 7px;
+            height: 7px;
+            background: #b18a45;
+            border-radius: 50%;
         }
 
-        .stat-box p {
-            color: var(--gray);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+        /* CAREERS & CONTACT */
+        .careers-contact {
+            background: #f7f8fa;
         }
 
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .form-section {
+            background: white;
+            border: 1px solid #e5e7eb;
+            padding: 40px;
+            margin-top: 30px;
         }
 
-        .service-card {
-            background-color: var(--charcoal);
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+        .form-section h3 {
+            color: #003366;
+            font-size: 1.35rem;
+            margin-bottom: 10px;
         }
 
-        .service-card:hover {
-            border-color: var(--gold);
+        .form-section p {
+            color: #667085;
         }
 
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        label {
+            display: block;
+            font-weight: 700;
+            color: #344054;
+            margin-bottom: 7px;
+            font-size: 0.9rem;
         }
 
-        .service-card p {
-            color: var(--gray);
+        input,
+        textarea {
+            width: 100%;
+            border: 1px solid #d0d5dd;
+            border-radius: 3px;
+            padding: 13px 14px;
+            font-family: inherit;
             font-size: 0.95rem;
-            font-weight: 300;
+            color: #1d2939;
+            background: white;
+            outline: none;
+            transition: 0.2s ease;
         }
 
-        /* Why SM Development */
-        .why-container {
-            background-color: var(--charcoal);
-            padding: 5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        input:focus,
+        textarea:focus {
+            border-color: #003366;
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.08);
         }
 
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+        textarea {
+            min-height: 150px;
+            resize: vertical;
         }
 
-        .why-item h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--gold);
+        hr {
+            border: 0;
+            border-top: 1px solid #e4e7ec;
+            margin: 35px 0;
         }
 
-        .why-item p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(to bottom, var(--near-black), var(--charcoal));
+        /* CTA */
+        .cta {
+            background: #003366;
+            color: white;
             text-align: center;
-            padding: 8rem 5%;
+            padding: 80px 25px;
         }
 
-        .contact-content {
-            max-width: 700px;
-            margin: 0 auto;
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
         }
 
-        .contact-content h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 28px;
+            color: #d9e2ec;
         }
 
-        .contact-content p {
-            color: var(--gray);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-
-        .contact-details {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 4rem;
-            flex-wrap: wrap;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 3rem;
-        }
-
-        .contact-item h5 {
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item p, .contact-item a {
-            color: var(--warm-white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        .contact-item a:hover {
-            color: var(--gold);
-        }
-
-        /* Footer */
+        /* FOOTER */
         footer {
-            padding: 3rem 5%;
-            background-color: var(--near-black);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: var(--gray);
-            flex-wrap: wrap;
-            gap: 1rem;
+            background: #071a2d;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 0.9rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 968px) {
-            .about-split {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            .nav-links {
+        footer a {
+            color: #d6b46a;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            nav {
                 display: none;
+            }
+
+            .hero {
+                min-height: 580px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-image {
+                min-height: 350px;
+            }
+
+            .values {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nav-container {
+                padding: 15px 18px;
+            }
+
+            .hero-content {
+                padding: 65px 20px;
+            }
+
+            .section {
+                padding: 65px 20px;
+            }
+
+            .about-grid {
+                padding: 65px 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                text-align: center;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">SM DEVELOPMENT</a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#why-us">Why Us</a></li>
-            <li><a href="#careers">Careers</a></li>
-            <li><a href="#contact">Contact</a></li>
+<!-- NAVIGATION -->
+<header>
+    <div class="nav-container">
+        <a href="#home" class="logo">SM <span>DEVELOPMENT</span></a>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact" class="nav-button">Contact Us</a>
+        </nav>
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-label">Property Development</div>
+
+        <h1>Building Places.<br>Creating Possibilities.</h1>
+
+        <p>
+            SM Development delivers thoughtfully planned residential and
+            commercial properties designed around quality, location and
+            long-term value.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn">Explore Our Projects</a>
+            <a href="#contact" class="btn btn-light">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="about-grid">
+
+        <div class="about-image"></div>
+
+        <div class="about-text">
+            <div class="section-label">About SM Development</div>
+
+            <h2>Developing spaces designed for better living.</h2>
+
+            <p>
+                SM Development is committed to creating quality residential
+                and commercial properties in locations that offer convenience,
+                accessibility and long-term value.
+            </p>
+
+            <p>
+                From development and property sales to client support, our
+                approach is centred around quality, professionalism and
+                dependable service.
+            </p>
+
+            <a href="#contact" class="btn">Speak With Us</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY SM DEVELOPMENT -->
+<section class="section">
+
+    <div class="section-header">
+        <div class="section-label">Why Choose Us</div>
+
+        <h2>Built around quality and value.</h2>
+
+        <p>
+            Every development is approached with careful attention to
+            location, functionality and the needs of the people who will
+            use the space.
+        </p>
+    </div>
+
+    <div class="values">
+
+        <div class="value-card">
+            <div class="value-line"></div>
+
+            <h3>Quality Development</h3>
+
+            <p>
+                We focus on creating properties that combine practical
+                design, quality and lasting value.
+            </p>
+        </div>
+
+        <div class="value-card">
+            <div class="value-line"></div>
+
+            <h3>Prime Locations</h3>
+
+            <p>
+                Strategically situated near business districts, lifestyle
+                hubs, and major thoroughfares.
+            </p>
+        </div>
+
+        <div class="value-card">
+            <div class="value-line"></div>
+
+            <h3>Client Focused</h3>
+
+            <p>
+                We aim to provide a straightforward and professional
+                experience from enquiry through to completion.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+
+    <div class="section">
+
+        <div class="section-header">
+            <div class="section-label">Our Portfolio</div>
+
+            <h2>Our Projects</h2>
+
+            <p>
+                Explore our approach to residential and commercial property
+                development.
+            </p>
+        </div>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="project-image one"></div>
+
+                <div class="project-info">
+                    <small>Residential Development</small>
+
+                    <h3>Modern Living</h3>
+
+                    <p>
+                        Thoughtfully designed residential spaces created
+                        for comfort, convenience and contemporary living.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-image two"></div>
+
+                <div class="project-info">
+                    <small>Property Development</small>
+
+                    <h3>Prime Locations</h3>
+
+                    <p>
+                        Developments positioned to provide accessibility,
+                        convenience and long-term property value.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section class="services" id="services">
+
+    <div class="section">
+
+        <div class="section-header">
+            <div class="section-label">What We Do</div>
+
+            <h2>Our Services</h2>
+
+            <p>
+                Professional property development and client services
+                tailored to meet different property needs.
+            </p>
+        </div>
+
+        <ul class="service-list">
+            <li>Residential Property Development</li>
+            <li>Commercial Projects</li>
+            <li>Property Sales & Client Inquiries</li>
+            <li>Customer Support & Digital Services</li>
         </ul>
-        <a href="#contact" class="btn btn-primary">Enquire Now</a>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Building Places. Creating Possibilities.</h1>
-            <p>Redefining modern living and architectural excellence through premium property developments crafted for tomorrow.</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn btn-primary">View Our Projects</a>
-                <a href="#contact" class="btn btn-outline">Contact Us</a>
-            </div>
-        </div>
-    </header>
+    </div>
 
-    <!-- Projects Section -->
-    <section id="projects">
+</section>
+
+
+<!-- CAREERS -->
+<section class="careers-contact" id="careers">
+
+    <div class="section">
+
         <div class="section-header">
-            <span>Portfolio</span>
-            <h2>Curated Developments</h2>
+            <div class="section-label">Join Our Team</div>
+
+            <h2>Careers & Job Applications</h2>
+
+            <p>
+                Want to work with us? Fill out the job application form below
+                to submit your details, or send your application materials
+                directly to our hiring email.
+            </p>
         </div>
-        <div class="projects-grid">
-            <a href="#contact" class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Resort-Style Living">
-                    <span class="project-badge">Completed</span>
-                </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span>Residential</span>
-                        <span>Sta. Rosa</span>
-                    </div>
-                    <h3>Calm Residences</h3>
-                    <p>Resort-style sanctuaries offering calm, spacious environments tailored for modern families.</p>
-                    <span class="explore-link">Explore Project &rarr;</span>
-                </div>
+
+        <div class="form-section">
+
+            <a href="mailto:smdevlopment@gmail.com?subject=Job%20Application"
+               class="btn btn-email">
+                Email Resume Directly
             </a>
 
-            <a href="#contact" class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="Prime Commercial Tower">
-                    <span class="project-badge">Under Construction</span>
-                </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span>Commercial</span>
-                        <span>Prime District</span>
-                    </div>
-                    <h3>Apex Business Hub</h3>
-                    <p>State-of-the-art commercial architecture designed for global enterprises and dynamic workspaces.</p>
-                    <span class="explore-link">Explore Project &rarr;</span>
-                </div>
-            </a>
+            <hr>
 
-            <a href="#contact" class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Luxury Living">
-                    <span class="project-badge">Pre-Selling</span>
-                </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span>Residential</span>
-                        <span>Metro Center</span>
-                    </div>
-                    <h3>The Horizon Estates</h3>
-                    <p>High-end sustainable residences combining uncompromising luxury with natural architectural harmony.</p>
-                    <span class="explore-link">Explore Project &rarr;</span>
-                </div>
-            </a>
-        </div>
-    </section>
+            <h3>Submit Job Application Online</h3>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="about-split">
-            <div class="about-text">
-                <span>About Us</span>
-                <h2>We don't just develop properties. We develop better places to live, work and grow.</h2>
-                <p style="color: var(--gray); font-weight: 300; margin-bottom: 1.5rem;">
-                    SM Development stands at the intersection of innovative design and structural integrity. Every blueprint we draft is built around a singular philosophy: enhancing the human experience through thoughtful space planning.
-                </p>
-                <div class="credibility-points">
-                    <div class="point-item">
-                        <div class="point-icon">&#10003;</div>
-                        <div>
-                            <h4>Quality Construction</h4>
-                            <p>Rigorous structural standards utilizing premium architectural materials.</p>
-                        </div>
-                    </div>
-                    <div class="point-item">
-                        <div class="point-icon">&#10003;</div>
-                        <div>
-                            <h4>Strategic Locations</h4>
-                            <p>Hand-picked sites guaranteeing accessibility, community growth, and enduring value.</p>
-                        </div>
-                    </div>
-                    <div class="point-item">
-                        <div class="point-icon">&#10003;</div>
-                        <div>
-                            <h4>Long-Term Value</h4>
-                            <p>Future-proof investments engineered to appreciate across generations.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <h3>10+</h3>
-                    <p>Projects Delivered</p>
-                </div>
-                <div class="stat-box">
-                    <h3>5+</h3>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-box">
-                    <h3>100%</h3>
-                    <p>Commitment to Quality</p>
-                </div>
-                <div class="stat-box">
-                    <h3>3</h3>
-                    <p>Development Areas</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <p style="margin-bottom: 25px;">
+                Complete the form below and submit your application.
+            </p>
 
-    <!-- Services Section -->
-    <section id="services" style="background-color: var(--charcoal);">
-        <div class="section-header">
-            <span>Expertise</span>
-            <h2>Our Core Services</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">&#127968;</div>
-                <h3>Residential Development</h3>
-                <p>Creating master-planned communities and high-end living spaces prioritizing comfort and sustainability.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">&#127970;</div>
-                <h3>Commercial Development</h3>
-                <p>Designing modern commercial hubs and office complexes optimized for business efficiency and growth.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">&#129309;</div>
-                <h3>Property Sales</h3>
-                <p>Guiding clients through transparent, secure transactions for prime residential and commercial units.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">&#128188;</div>
-                <h3>Property & Client Ser
+            <form action="https://formspree.io/f/xkjwqroq" method="POST">
+
+                <input type="hidden"
+                       name="_subject"
+                       value="New Job Application from Website">
+
+                <div class="form-group">
+                    <label for="job-name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="job-name"
+                        name="name"
+                        required
+                        placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="job-email">Your Email</label>
+
+                    <input
+                        type="email"
+                        id="job-email"
+                        name="email"
+                        required
+                        placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Position Applying For</label>
+
+                    <input
+                        type="text"
+                        id="position"
+                        name="position"
+                        required
+                        placeholder="e.g. Sales Agent, Project Manager, Support">
+                </div>
+
+                <div class="form-group">
+                    <label for="cover-letter">
+                        Cover Letter / Experience Summary
+                    </label>
+
+                    <textarea
+                        id="cover-letter"
+                        name="cover_letter"
+                        require
