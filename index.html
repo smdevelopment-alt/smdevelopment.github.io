@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SM Development | Building Better Futures</title>
-    <meta name="description" content="SM Development - Residential and commercial property development, sales and client services.">
+    <title>SM Development | Property Development</title>
+
+    <meta name="description" content="SM Development - Residential and commercial property development, property sales and client services.">
 
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -21,148 +23,86 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #f7f8fa;
-            color: #1f2933;
+            color: #263238;
             line-height: 1.7;
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
         img {
-            max-width: 100%;
+            width: 100%;
             display: block;
         }
 
-        /* NAVIGATION */
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #e8eaed;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
         }
 
-        .nav-container {
-            max-width: 1180px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo {
-            font-size: 1.45rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            color: #003366;
-        }
-
-        .logo span {
-            color: #b18a45;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        nav a {
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: #344054;
-            transition: 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #003366;
-        }
-
-        .nav-button {
-            background: #003366;
-            color: white !important;
-            padding: 10px 18px;
-            border-radius: 4px;
-        }
-
-        .nav-button:hover {
-            background: #00264d;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 650px;
-            background:
-                linear-gradient(rgba(0, 30, 60, 0.72), rgba(0, 20, 40, 0.76)),
-                url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85")
-                center/cover no-repeat;
-
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content {
-            max-width: 1180px;
+        .container {
             width: 100%;
-            margin: auto;
-            padding: 80px 25px;
-            color: white;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding-left: 25px;
+            padding-right: 25px;
         }
 
-        .hero-label {
-            color: #d6b46a;
+        .section {
+            padding-top: 90px;
+            padding-bottom: 90px;
+        }
+
+        .section-label {
+            color: #b18a45;
+            font-size: 0.78rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.82rem;
-            font-weight: 700;
+            letter-spacing: 2.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            color: #003366;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
             margin-bottom: 18px;
         }
 
-        .hero h1 {
-            font-size: clamp(2.7rem, 6vw, 5.2rem);
-            line-height: 1.05;
-            max-width: 800px;
-            margin-bottom: 25px;
-            font-weight: 800;
+        .section-description {
+            max-width: 700px;
+            color: #667085;
+            font-size: 1rem;
         }
 
-        .hero p {
-            max-width: 650px;
-            font-size: 1.12rem;
-            color: #eef2f6;
-            margin-bottom: 35px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+        .section-heading {
+            margin-bottom: 45px;
         }
 
         .btn {
             display: inline-block;
-            border: none;
-            background: #003366;
-            color: white;
             padding: 13px 25px;
+            border: none;
             border-radius: 4px;
-            font-size: 0.95rem;
+            background: #003366;
+            color: #ffffff;
+            font-size: 0.94rem;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .btn:hover {
             background: #00264d;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
         .btn-light {
-            background: white;
+            background: #ffffff;
             color: #003366;
         }
 
@@ -170,52 +110,138 @@
             background: #f1f3f5;
         }
 
-        .btn-email {
-            background: #003366;
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        /* GENERAL */
-        .section {
-            max-width: 1180px;
-            margin: auto;
-            padding: 90px 25px;
+        .navbar {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .section-header {
-            max-width: 700px;
-            margin-bottom: 45px;
-        }
-
-        .section-label {
-            color: #b18a45;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.78rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            line-height: 1.2;
+        .logo {
             color: #003366;
-            margin-bottom: 15px;
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
         }
 
-        .section-header p {
-            color: #667085;
-            font-size: 1rem;
+        .logo span {
+            color: #b18a45;
         }
 
-        /* ABOUT */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #344054;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #003366;
+        }
+
+        .nav-links .nav-contact {
+            padding: 10px 18px;
+            color: #ffffff;
+            background: #003366;
+            border-radius: 4px;
+        }
+
+        .nav-links .nav-contact:hover {
+            color: #ffffff;
+            background: #00264d;
+        }
+
+        .mobile-menu-button {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 1.7rem;
+            color: #003366;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 14px 25px;
+            border-bottom: 1px solid #f0f1f3;
+            color: #344054;
+            font-weight: 600;
+        }
+
+        .hero {
+            min-height: 680px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    rgba(0, 28, 55, 0.76),
+                    rgba(0, 20, 40, 0.80)
+                ),
+                url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1900&q=85")
+                center center / cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding-top: 90px;
+            padding-bottom: 90px;
+            color: #ffffff;
+        }
+
+        .hero .section-label {
+            color: #d2ad68;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5.3rem);
+            line-height: 1.04;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .hero-text {
+            max-width: 670px;
+            color: #edf2f7;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
         .about {
-            background: white;
+            background: #ffffff;
         }
 
         .about-grid {
-            max-width: 1180px;
-            margin: auto;
-            padding: 90px 25px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 65px;
@@ -223,604 +249,163 @@
         }
 
         .about-image {
-            min-height: 480px;
+            min-height: 500px;
             background:
-                linear-gradient(rgba(0, 35, 70, 0.12), rgba(0, 35, 70, 0.12)),
-                url("https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85")
-                center/cover no-repeat;
+                linear-gradient(
+                    rgba(0, 40, 75, 0.08),
+                    rgba(0, 40, 75, 0.08)
+                ),
+                url("https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=85")
+                center / cover no-repeat;
         }
 
-        .about-text h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: #003366;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
+        .about-content p {
             color: #667085;
             margin-bottom: 18px;
         }
 
-        /* VALUES */
-        .values {
+        .about-content .btn {
+            margin-top: 8px;
+        }
+
+        .highlights {
+            background: #003366;
+            color: #ffffff;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .highlight {
+            text-align: center;
+            padding: 25px 20px;
+            border-right: 1px solid rgba(255,255,255,0.18);
+        }
+
+        .highlight:last-child {
+            border-right: none;
+        }
+
+        .highlight-title {
+            display: block;
+            color: #d2ad68;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .highlight-text {
+            color: #dbe5ef;
+            font-size: 0.88rem;
+        }
+
+        .why-us {
+            background: #f7f8fa;
+        }
+
+        .cards-three {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 22px;
-            margin-top: 45px;
         }
 
-        .value-card {
-            background: white;
-            border: 1px solid #e7e9ec;
-            padding: 30px;
-            transition: 0.3s ease;
+        .info-card {
+            background: #ffffff;
+            border: 1px solid #e4e7ec;
+            padding: 32px;
+            transition: all 0.25s ease;
         }
 
-        .value-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.07);
         }
 
-        .value-line {
-            width: 40px;
+        .gold-line {
+            width: 42px;
             height: 3px;
             background: #b18a45;
             margin-bottom: 22px;
         }
 
-        .value-card h3 {
+        .info-card h3 {
             color: #003366;
+            font-size: 1.2rem;
             margin-bottom: 10px;
-            font-size: 1.15rem;
         }
 
-        .value-card p {
+        .info-card p {
             color: #667085;
             font-size: 0.92rem;
         }
 
-        /* PROJECTS */
         .projects {
-            background: #f7f8fa;
+            background: #ffffff;
         }
 
         .project-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 28px;
         }
 
         .project-card {
-            background: white;
-            border: 1px solid #e6e8eb;
+            background: #ffffff;
+            border: 1px solid #e4e7ec;
             overflow: hidden;
-            transition: 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.08);
         }
 
         .project-image {
-            height: 300px;
+            height: 320px;
             background-position: center;
             background-size: cover;
         }
 
-        .project-image.one {
-            background-image: url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85");
+        .project-image-one {
+            background-image:
+                url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1300&q=85");
         }
 
-        .project-image.two {
-            background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85");
+        .project-image-two {
+            background-image:
+                url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1300&q=85");
         }
 
-        .project-info {
-            padding: 28px;
+        .project-content {
+            padding: 30px;
         }
 
-        .project-info small {
+        .project-type {
             color: #b18a45;
+            font-size: 0.72rem;
+            font-weight: 800;
             text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
         }
 
-        .project-info h3 {
+        .project-content h3 {
             color: #003366;
-            font-size: 1.4rem;
-            margin: 8px 0;
+            font-size: 1.45rem;
+            margin: 8px 0 10px;
         }
 
-        .project-info p {
+        .project-content p {
             color: #667085;
             font-size: 0.92rem;
         }
 
-        /* SERVICES */
-        .services {
-            background: white;
-        }
-
-        .service-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-            list-style: none;
-        }
-
-        .service-list li {
-            border: 1px solid #e4e7ec;
-            padding: 22px 25px;
-            background: #fff;
-            color: #344054;
-            font-weight: 600;
-            position: relative;
-            padding-left: 45px;
-        }
-
-        .service-list li::before {
-            content: "";
-            position: absolute;
-            left: 22px;
-            top: 32px;
-            width: 7px;
-            height: 7px;
-            background: #b18a45;
-            border-radius: 50%;
-        }
-
-        /* CAREERS & CONTACT */
-        .careers-contact {
+        .process {
             background: #f7f8fa;
         }
 
-        .form-section {
-            background: white;
-            border: 1px solid #e5e7eb;
-            padding: 40px;
-            margin-top: 30px;
-        }
-
-        .form-section h3 {
-            color: #003366;
-            font-size: 1.35rem;
-            margin-bottom: 10px;
-        }
-
-        .form-section p {
-            color: #667085;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: 700;
-            color: #344054;
-            margin-bottom: 7px;
-            font-size: 0.9rem;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            border: 1px solid #d0d5dd;
-            border-radius: 3px;
-            padding: 13px 14px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            color: #1d2939;
-            background: white;
-            outline: none;
-            transition: 0.2s ease;
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: #003366;
-            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.08);
-        }
-
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid #e4e7ec;
-            margin: 35px 0;
-        }
-
-        /* CTA */
-        .cta {
-            background: #003366;
-            color: white;
-            text-align: center;
-            padding: 80px 25px;
-        }
-
-        .cta h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 15px;
-        }
-
-        .cta p {
-            max-width: 650px;
-            margin: 0 auto 28px;
-            color: #d9e2ec;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #071a2d;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 35px 20px;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #d6b46a;
-        }
-
-        /* MOBILE */
-        @media (max-width: 800px) {
-            nav {
-                display: none;
-            }
-
-            .hero {
-                min-height: 580px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .about-image {
-                min-height: 350px;
-            }
-
-            .values {
-                grid-template-columns: 1fr;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .service-list {
-                grid-template-columns: 1fr;
-            }
-
-            .form-section {
-                padding: 25px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .nav-container {
-                padding: 15px 18px;
-            }
-
-            .hero-content {
-                padding: 65px 20px;
-            }
-
-            .section {
-                padding: 65px 20px;
-            }
-
-            .about-grid {
-                padding: 65px 20px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .hero-buttons .btn {
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<!-- NAVIGATION -->
-<header>
-    <div class="nav-container">
-        <a href="#home" class="logo">SM <span>DEVELOPMENT</span></a>
-
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#services">Services</a>
-            <a href="#careers">Careers</a>
-            <a href="#contact" class="nav-button">Contact Us</a>
-        </nav>
-    </div>
-</header>
-
-
-<!-- HERO -->
-<section class="hero" id="home">
-    <div class="hero-content">
-        <div class="hero-label">Property Development</div>
-
-        <h1>Building Places.<br>Creating Possibilities.</h1>
-
-        <p>
-            SM Development delivers thoughtfully planned residential and
-            commercial properties designed around quality, location and
-            long-term value.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#projects" class="btn">Explore Our Projects</a>
-            <a href="#contact" class="btn btn-light">Contact Us</a>
-        </div>
-    </div>
-</section>
-
-
-<!-- ABOUT -->
-<section class="about" id="about">
-
-    <div class="about-grid">
-
-        <div class="about-image"></div>
-
-        <div class="about-text">
-            <div class="section-label">About SM Development</div>
-
-            <h2>Developing spaces designed for better living.</h2>
-
-            <p>
-                SM Development is committed to creating quality residential
-                and commercial properties in locations that offer convenience,
-                accessibility and long-term value.
-            </p>
-
-            <p>
-                From development and property sales to client support, our
-                approach is centred around quality, professionalism and
-                dependable service.
-            </p>
-
-            <a href="#contact" class="btn">Speak With Us</a>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- WHY SM DEVELOPMENT -->
-<section class="section">
-
-    <div class="section-header">
-        <div class="section-label">Why Choose Us</div>
-
-        <h2>Built around quality and value.</h2>
-
-        <p>
-            Every development is approached with careful attention to
-            location, functionality and the needs of the people who will
-            use the space.
-        </p>
-    </div>
-
-    <div class="values">
-
-        <div class="value-card">
-            <div class="value-line"></div>
-
-            <h3>Quality Development</h3>
-
-            <p>
-                We focus on creating properties that combine practical
-                design, quality and lasting value.
-            </p>
-        </div>
-
-        <div class="value-card">
-            <div class="value-line"></div>
-
-            <h3>Prime Locations</h3>
-
-            <p>
-                Strategically situated near business districts, lifestyle
-                hubs, and major thoroughfares.
-            </p>
-        </div>
-
-        <div class="value-card">
-            <div class="value-line"></div>
-
-            <h3>Client Focused</h3>
-
-            <p>
-                We aim to provide a straightforward and professional
-                experience from enquiry through to completion.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PROJECTS -->
-<section class="projects" id="projects">
-
-    <div class="section">
-
-        <div class="section-header">
-            <div class="section-label">Our Portfolio</div>
-
-            <h2>Our Projects</h2>
-
-            <p>
-                Explore our approach to residential and commercial property
-                development.
-            </p>
-        </div>
-
-        <div class="project-grid">
-
-            <div class="project-card">
-                <div class="project-image one"></div>
-
-                <div class="project-info">
-                    <small>Residential Development</small>
-
-                    <h3>Modern Living</h3>
-
-                    <p>
-                        Thoughtfully designed residential spaces created
-                        for comfort, convenience and contemporary living.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="project-card">
-                <div class="project-image two"></div>
-
-                <div class="project-info">
-                    <small>Property Development</small>
-
-                    <h3>Prime Locations</h3>
-
-                    <p>
-                        Developments positioned to provide accessibility,
-                        convenience and long-term property value.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SERVICES -->
-<section class="services" id="services">
-
-    <div class="section">
-
-        <div class="section-header">
-            <div class="section-label">What We Do</div>
-
-            <h2>Our Services</h2>
-
-            <p>
-                Professional property development and client services
-                tailored to meet different property needs.
-            </p>
-        </div>
-
-        <ul class="service-list">
-            <li>Residential Property Development</li>
-            <li>Commercial Projects</li>
-            <li>Property Sales & Client Inquiries</li>
-            <li>Customer Support & Digital Services</li>
-        </ul>
-
-    </div>
-
-</section>
-
-
-<!-- CAREERS -->
-<section class="careers-contact" id="careers">
-
-    <div class="section">
-
-        <div class="section-header">
-            <div class="section-label">Join Our Team</div>
-
-            <h2>Careers & Job Applications</h2>
-
-            <p>
-                Want to work with us? Fill out the job application form below
-                to submit your details, or send your application materials
-                directly to our hiring email.
-            </p>
-        </div>
-
-        <div class="form-section">
-
-            <a href="mailto:smdevlopment@gmail.com?subject=Job%20Application"
-               class="btn btn-email">
-                Email Resume Directly
-            </a>
-
-            <hr>
-
-            <h3>Submit Job Application Online</h3>
-
-            <p style="margin-bottom: 25px;">
-                Complete the form below and submit your application.
-            </p>
-
-            <form action="https://formspree.io/f/xkjwqroq" method="POST">
-
-                <input type="hidden"
-                       name="_subject"
-                       value="New Job Application from Website">
-
-                <div class="form-group">
-                    <label for="job-name">Full Name</label>
-
-                    <input
-                        type="text"
-                        id="job-name"
-                        name="name"
-                        required
-                        placeholder="Your full name">
-                </div>
-
-                <div class="form-group">
-                    <label for="job-email">Your Email</label>
-
-                    <input
-                        type="email"
-                        id="job-email"
-                        name="email"
-                        required
-                        placeholder="your@email.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="position">Position Applying For</label>
-
-                    <input
-                        type="text"
-                        id="position"
-                        name="position"
-                        required
-                        placeholder="e.g. Sales Agent, Project Manager, Support">
-                </div>
-
-                <div class="form-group">
-                    <label for="cover-letter">
-                        Cover Letter / Experience Summary
-                    </label>
-
-                    <textarea
-                        id="cover-letter"
-                        name="cover_letter"
-                        require
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1
